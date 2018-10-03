@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Add new order</h2>
+<mat-dialog-content>
+    <form (ngSubmit)="save()" #ngForm="ngForm" [formGroup]="form">
+        <div flex>
+            <app-select placeholder="Customer" name="customerId" formControlName="customerId" [items]="customers"></app-select>
+        </div>
+        <div flex>
+            <app-select placeholder="Product" name="productId" formControlName="productId" [items]="products"></app-select>
+        </div>
+        <div>
+            <app-input-text placeholder="Quantity" name="quantity" formControlName="quantity"></app-input-text>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" (click)="ngForm.onSubmit()">Submit Order</button>
+</mat-dialog-actions>

@@ -1,0 +1,6 @@
+<mat-form-field>
+    <input matInput placeholder="{{placeholder}}" [(ngModel)]="value" [errorStateMatcher]="matcher" type="{{type}}" [disabled]="disabled" >
+    <mat-error>
+        {{getError()}}
+    </mat-error>
+</mat-form-field>

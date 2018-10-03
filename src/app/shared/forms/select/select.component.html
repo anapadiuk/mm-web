@@ -1,0 +1,14 @@
+<mat-form-field [ngClass]="cssClass">
+    <mat-select placeholder="{{placeholder}}" [(ngModel)]="value" [errorStateMatcher]="matcher" multiple *ngIf="multiple" [disabled]="disabled"
+        [class.disabled]="disabled">
+        <mat-option value="{{item.value}}" *ngFor="let item of mappedItems">{{item.label}}</mat-option>
+    </mat-select>
+    <mat-select placeholder="{{placeholder}}" [(ngModel)]="value" [errorStateMatcher]="matcher" *ngIf="!multiple" [disabled]="disabled"
+        [class.disabled]="disabled">
+        <mat-option *ngIf="!!defaultLabel">{{defaultLabel}}</mat-option>
+        <mat-option value="{{item.value}}" *ngFor="let item of mappedItems">{{item.label}}</mat-option>
+    </mat-select>
+    <mat-error>
+        {{getError()}}
+    </mat-error>
+</mat-form-field>
